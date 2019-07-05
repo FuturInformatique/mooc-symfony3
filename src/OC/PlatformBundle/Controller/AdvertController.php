@@ -7,7 +7,7 @@ use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 
 class AdvertController extends AbstractController {
 
-    public function indexAction() {
+    public function indexAction($page) {
 
         $url = $this->generateUrl('oc_advert_view', ['id' => 5]);
         $abs_url = $this->generateUrl('oc_advert_view', ['id' => 5], UrlGeneratorInterface::ABSOLUTE_URL);
@@ -17,7 +17,8 @@ class AdvertController extends AbstractController {
             [
                 'name' => 'Serge',
                 'url' => $url,
-                'abs_url' => $abs_url
+                'abs_url' => $abs_url,
+                'page' => $page,
             ]
         );
     }
@@ -31,7 +32,15 @@ class AdvertController extends AbstractController {
     }
 
     public function addAction() {
-        return new Response("Ajout (démerde toi avec ca !)");
+        return new Response("Ajouter");
+    }
+
+    public function editAction($id) {
+        return new Response("Modifier");
+    }
+
+    public function deleteAction($id) {
+        return new Response("Supprimer");
     }
 
 }

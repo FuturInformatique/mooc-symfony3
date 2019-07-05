@@ -1,10 +1,15 @@
 oc_advert_index:
-    path: /
+    path: /{page}
     controller: OCPlatformBundle:Advert:index
+    defaults: { page: 1 }
+    requirements:
+        page: \d+
 
 oc_advert_view:
     path: /view/{id}
     controller: OCPlatformBundle:Advert:view
+    requirements:
+        id: \d+
 
 oc_advert_view_slug:
     path: /view/{year}/{slug}.{_format}
@@ -17,3 +22,15 @@ oc_advert_view_slug:
 oc_advert_add:
     path: /add
     controller: OCPlatformBundle:Advert:add
+
+oc_advert_edit:
+    path: /edit/{id}
+    controller: OCPlatformBundle:Advert:edit
+    requirements:
+        id: \d+
+
+oc_advert_delete:
+    path: /delete/{id}
+    controller: OCPlatformBundle:Advert:delete
+    requirements:
+        id: \d+
