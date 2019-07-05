@@ -4,11 +4,20 @@ namespace OC\PlatformBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Response;
 
+use Symfony\Component\Routing\RouterInterface;
+
 class AdvertController extends Controller{
-    public function indexAction() {
+
+    public function indexAction(RouterInterface $router) {
+
+        $url = $router->generate('oc_advert_view', ['id' => 5]);
+
         return $this->render(
             'OCPlatformBundle:Advert:index.html.twig',
-            ['name' => 'Serge']
+            [
+                'name' => 'Serge',
+                'url' => $url
+            ]
         );
     }
 
