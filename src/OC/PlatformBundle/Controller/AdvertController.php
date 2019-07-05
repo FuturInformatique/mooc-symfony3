@@ -28,6 +28,10 @@ class AdvertController extends AbstractController {
 
         $tag = $request->query->get('tag');
 
+        if ($tag === 'add') {
+            return $this->redirectToRoute('oc_advert_add');
+        }
+
         return $this->render(
             'OCPlatformBundle:Advert:view.html.twig',
             [
