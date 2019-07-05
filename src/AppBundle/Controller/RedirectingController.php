@@ -1,4 +1,7 @@
 <?php
+/**
+ * Source : https://symfony.com/doc/3.4/routing/redirect_trailing_slash.html
+ */
 namespace AppBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
