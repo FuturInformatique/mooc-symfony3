@@ -2,6 +2,7 @@
 namespace OC\PlatformBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 
@@ -23,8 +24,17 @@ class AdvertController extends AbstractController {
         );
     }
 
-    public function viewAction($id) {
-        return new Response("Affichage de l'annonce d'id : ".$id);
+    public function viewAction($id, Request $request) {
+
+        $tag = $request->query->get('tag');
+
+        return $this->render(
+            'OCPlatformBundle:Advert:view.html.twig',
+            [
+                'id' => $id,
+                'tag' => $tag
+            ]
+        );
     }
 
     public function slugAction($year, $slug, $_format) {
