@@ -6,6 +6,17 @@
 </head>
 <body>
     <h1>Annonce n°{{ id }}</h1>
-    <p>Tag éventuel : {{ tag }}</p>
+
+    <div>
+        {# On affiche tous les message Flash dont le nom est 'info' #}
+        {% for message in app.flashes('info') %}
+            <p>Message flash : {{ message }}</p>
+        {% endfor %}
+    </div>
+
+    <p>
+        Ici le corps de l'annonce d'id : {{ id }}.<br />
+        Mais pour l'instant, on sait pas faire, donc on verra après :)
+    </p>
 </body>
 </html>

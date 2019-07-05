@@ -24,19 +24,12 @@ class AdvertController extends AbstractController {
         );
     }
 
-    public function viewAction($id, Request $request) {
-
-        $tag = $request->query->get('tag');
-
-        if ($tag === 'add') {
-            return $this->redirectToRoute('oc_advert_add');
-        }
+    public function viewAction($id) {
 
         return $this->render(
             'OCPlatformBundle:Advert:view.html.twig',
             [
                 'id' => $id,
-                'tag' => $tag
             ]
         );
     }
@@ -46,7 +39,11 @@ class AdvertController extends AbstractController {
     }
 
     public function addAction() {
-        return new Response("Ajouter");
+
+        $this->addFlash('info', "Annonce bien enregistrée !");
+        $this->addFlash('info', "Si si, elle est bien enregistrée qu'on te dit !");
+
+        return $this->redirectToRoute('oc_advert_view', ['id' => 5]);
     }
 
     public function editAction($id) {
