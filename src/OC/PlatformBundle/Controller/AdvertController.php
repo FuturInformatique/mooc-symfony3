@@ -1,22 +1,23 @@
 <?php
 namespace OC\PlatformBundle\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 
-use Symfony\Component\Routing\RouterInterface;
+class AdvertController extends AbstractController {
 
-class AdvertController extends Controller{
+    public function indexAction() {
 
-    public function indexAction(RouterInterface $router) {
-
-        $url = $router->generate('oc_advert_view', ['id' => 5]);
+        $url = $this->generateUrl('oc_advert_view', ['id' => 5]);
+        $abs_url = $this->generateUrl('oc_advert_view', ['id' => 5], UrlGeneratorInterface::ABSOLUTE_URL);
 
         return $this->render(
             'OCPlatformBundle:Advert:index.html.twig',
             [
                 'name' => 'Serge',
-                'url' => $url
+                'url' => $url,
+                'abs_url' => $abs_url
             ]
         );
     }
