@@ -1,7 +1,19 @@
-oc_platform_homepage:
-    path:     /
-    defaults: { _controller: OCPlatformBundle:Default:index }
-
-hello_the_world:
-    path:       /hello_world
+oc_advert_index:
+    path: /
     controller: OCPlatformBundle:Advert:index
+
+oc_advert_view:
+    path: /view/{id}
+    controller: OCPlatformBundle:Advert:view
+
+oc_advert_view_slug:
+    path: /view/{year}/{slug}.{_format}
+    controller: OCPlatformBundle:Advert:slug
+    defaults: { _format: html }
+    requirements:
+        year: \d{4}
+        _format: html|json|xml
+
+oc_advert_add:
+    path: /add
+    controller: OCPlatformBundle:Advert:add
