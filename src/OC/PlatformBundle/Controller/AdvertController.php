@@ -4,6 +4,9 @@ namespace OC\PlatformBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+
+use Symfony\Component\HttpFoundation\RedirectResponse;
+
 use \DateTime;
 
 class AdvertController extends AbstractController {
@@ -12,6 +15,7 @@ class AdvertController extends AbstractController {
      * Liste des annonces
      * @param $page
      * @return Response
+     * @throws \Exception
      */
     public function indexAction($page) {
 
@@ -49,6 +53,10 @@ class AdvertController extends AbstractController {
         ]);
     }
 
+    /**
+     * Affiche un menu contenant des annonces
+     * @return Response
+     */
     public function menuAction() {
         $listAdverts = array(
             array('id' => 2, 'title' => 'Recherche développeur Symfony 3.4'),
@@ -86,7 +94,7 @@ class AdvertController extends AbstractController {
     /**
      * Ajout d'une nouvelle annonce
      * @param Request $request
-     * @return \Symfony\Component\HttpFoundation\RedirectResponse|Response
+     * @return RedirectResponse|Response
      */
     public function addAction(Request $request) {
 
@@ -111,7 +119,7 @@ class AdvertController extends AbstractController {
      * Modification d'une annonce existante
      * @param $id
      * @param Request $request
-     * @return \Symfony\Component\HttpFoundation\RedirectResponse|Response
+     * @return RedirectResponse|Response
      */
     public function editAction($id, Request $request) {
 
@@ -135,6 +143,11 @@ class AdvertController extends AbstractController {
         return $this->render('OCPlatformBundle:Advert:edit.html.twig');
     }
 
+    /**
+     * Supprime une annonce existante
+     * @param $id
+     * @return Response
+     */
     public function deleteAction($id) {
 
         // Récupère l'annonce dont l'id vaut $id
