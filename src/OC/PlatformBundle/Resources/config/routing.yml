@@ -11,14 +11,6 @@ oc_advert_view:
     requirements:
         id: \d+
 
-oc_advert_view_slug:
-    path: /view/{year}/{slug}.{_format}
-    controller: OCPlatformBundle:Advert:slug
-    defaults: { _format: html }
-    requirements:
-        year: \d{4}
-        _format: html|json|xml
-
 oc_advert_add:
     path: /add
     controller: OCPlatformBundle:Advert:add
