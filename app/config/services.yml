@@ -35,10 +35,15 @@ services:
 
     OC\PlatformBundle\Controller\:
         resource: '../../src/OC/PlatformBundle/Controller'
-        public: true
         tags: ['controller.service_arguments']
+        public: true
 
     # add more services, or override services that need manual wiring
     # AppBundle\Service\ExampleService:
     #     arguments:
     #         $someArgument: 'some_value'
+    OC\PlatformBundle\Antispam\OCAntispam:
+        arguments:
+            $mailer: '@mailer'
+            $locale: '%locale%'
+            $minLength: '50'
