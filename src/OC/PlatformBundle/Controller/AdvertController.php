@@ -62,17 +62,24 @@ class AdvertController extends AbstractController {
     }
 
     /**
-     * Visualisation d'une annonce particulière
+     * Visualisation d'une annonce existante
      * @param $id
      * @return Response
+     * @throws \Exception
      */
     public function viewAction($id) {
 
         // Récupère l'annonce dont l'id vaut $id
-        // TODO
+        $advert = array(
+            'title'   => 'Recherche développpeur Symfony2',
+            'id'      => $id,
+            'author'  => 'Alexandre',
+            'content' => 'Nous recherchons un développeur Symfony2 débutant sur Lyon. Blabla…',
+            'date'    => new Datetime()
+        );
 
         return $this->render('OCPlatformBundle:Advert:view.html.twig', [
-            'id' => $id,
+            'advert' => $advert,
         ]);
     }
 
