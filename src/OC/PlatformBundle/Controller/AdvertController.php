@@ -4,6 +4,7 @@ namespace OC\PlatformBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use \DateTime;
 
 class AdvertController extends AbstractController {
 
@@ -20,11 +21,31 @@ class AdvertController extends AbstractController {
         }
 
         // Récupération de la liste des annonces, et passage au template
-        // TODO
+        $listAdverts = array(
+            array(
+                'title'   => 'Recherche développpeur Symfony',
+                'id'      => 1,
+                'author'  => 'Alexandre',
+                'content' => 'Nous recherchons un développeur Symfony débutant sur Lyon. Blabla…',
+                'date'    => new Datetime()),
+            array(
+                'title'   => 'Mission de webmaster',
+                'id'      => 2,
+                'author'  => 'Hugo',
+                'content' => 'Nous recherchons un webmaster capable de maintenir notre site internet. Blabla…',
+                'date'    => new Datetime()),
+            array(
+                'title'   => 'Offre de stage webdesigner',
+                'id'      => 3,
+                'author'  => 'Mathieu',
+                'content' => 'Nous proposons un poste pour webdesigner. Blabla…',
+                'date'    => new Datetime())
+        );
 
         // Render du template
         return $this->render('OCPlatformBundle:Advert:index.html.twig', [
             'page' => $page,
+            'listAdverts' => $listAdverts
         ]);
     }
 
