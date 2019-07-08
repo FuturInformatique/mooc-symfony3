@@ -5,18 +5,18 @@
 {% endblock %}
 
 {% block ocplatform_body %}
-    <h2>Ajouter une annonce</h2>
+    <h2>Modifier une annonce</h2>
 
     {{ include('OCPlatformBundle:Advert:_form.html.twig') }}
 
     <p>
-        Attention : cette annonce sera ajoutée directement sur la page d'accueil après validation du formulaire.
+        Vous éditez une annonce déjà existante, merci de ne pas changer l'esprit général de l'annonce publiée.
     </p>
 
     <p>
-        <a href="{{ path('oc_advert_index') }}" class="btn btn-default">
+        <a href="{{ path('oc_advert_view', {'id': advert.id}) }}" class="btn btn-default">
             <i class="glyphicon glyphicon-chevron-left"></i>
-            Retour à l'accueil
+            Retour à l'annonce
         </a>
     </p>
 {% endblock %}

@@ -120,11 +120,18 @@ class AdvertController extends AbstractController {
      * @param $id
      * @param Request $request
      * @return RedirectResponse|Response
+     * @throws \Exception
      */
     public function editAction($id, Request $request) {
 
         // Récupère l'annonce dont l'id vaut $id
-        // TODO
+        $advert = array(
+            'title'   => 'Recherche développpeur Symfony',
+            'id'      => $id,
+            'author'  => 'Alexandre',
+            'content' => 'Nous recherchons un développeur Symfony débutant sur Lyon. Blabla…',
+            'date'    => new Datetime()
+        );
 
         // Si la requête est en POST, le visiteur a soumis un formulaire
         if ($request->isMethod('POST')) {
@@ -140,7 +147,9 @@ class AdvertController extends AbstractController {
         }
 
         // Sinon on affiche le formulaire
-        return $this->render('OCPlatformBundle:Advert:edit.html.twig');
+        return $this->render('OCPlatformBundle:Advert:edit.html.twig', [
+            'advert' => $advert
+        ]);
     }
 
     /**
