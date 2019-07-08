@@ -1,15 +1,14 @@
-<!DOCTYPE html>
-<html lang="fr">
-    <head>
-        <meta charset="UTF-8">
-        <title>{% block title %}Plateforme d'annonce{% endblock %}</title>
-    </head>
+{% extends "::layout.html.twig" %}
 
-    <body>
-        {% block body %}{% endblock %}
+{% block title %}
+    Annonces - {{ parent() }}
+{% endblock %}
 
-        <footer>
-            {{ webmaster }} - {{ "now"|date('Y') }}
-        </footer>
-    </body>
-</html>
+{% block body %}
+    <h1>Annonces</h1>
+
+    <hr />
+
+    {% block ocplatform_body %}{% endblock %}
+
+{% endblock %}
