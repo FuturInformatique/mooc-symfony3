@@ -4,8 +4,9 @@ namespace OC\PlatformBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-
 use Symfony\Component\HttpFoundation\RedirectResponse;
+
+use OC\PlatformBundle\Antispam\OCAntispam;
 
 use \DateTime;
 
@@ -94,9 +95,17 @@ class AdvertController extends AbstractController {
     /**
      * Ajout d'une nouvelle annonce
      * @param Request $request
+     * @param OCAntispam $antispam
      * @return RedirectResponse|Response
      */
-    public function addAction(Request $request) {
+    public function addAction(Request $request, OCAntispam $antispam) {
+
+        //--- Test service
+        $text = "coucou";
+        if ($antispam->isSpam($text)) {
+            throw new \Exception('Votre message a été détecté comme spam ! (c\'est pas bien)');
+        }
+        //--- END
 
         // Si la requête est en POST, le visiteur a soumis un formulaire
         if ($request->isMethod('POST')) {
