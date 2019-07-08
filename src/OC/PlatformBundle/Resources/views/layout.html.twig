@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Plateforme d'annonce{% endblock %}</title>
+    </head>
+
+    <body>
+        {% block body %}{% endblock %}
+
+        <footer>
+            {{ webmaster }} - {{ "now"|date('Y') }}
+        </footer>
+    </body>
+</html>

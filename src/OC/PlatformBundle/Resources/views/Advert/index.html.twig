@@ -1,20 +1,12 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <title>Liste des annonces</title>
-</head>
-<body>
-    <h1>Dernières annonces</h1>
+{% extends "OCPlatformBundle::layout.html.twig" %}
 
+{% block title %}{{ parent() }} - Index{% endblock %}
+
+{% block body %}
     <p>
-        To be continued ...
+        Notre plateforme est un peu vide ... mais ca va viendre !!!
     </p>
-
     <p>
         <em>Vous êtes sur la page {{ page }}</em>
     </p>
-</body>
-
-<footer>{{ webmaster }} - {{ "now"|date('Y') }}</footer>
-</html>
+{% endblock %}
