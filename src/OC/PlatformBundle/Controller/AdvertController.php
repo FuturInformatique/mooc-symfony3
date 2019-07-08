@@ -49,6 +49,18 @@ class AdvertController extends AbstractController {
         ]);
     }
 
+    public function menuAction() {
+        $listAdverts = array(
+            array('id' => 2, 'title' => 'Recherche développeur Symfony 3.4'),
+            array('id' => 5, 'title' => 'Mission de webmaster'),
+            array('id' => 9, 'title' => 'Offre de stage webdesigner'),
+        );
+
+        return $this->render('OCPlatformBundle:Advert:menu.html.twig', [
+            'listAdverts' => $listAdverts
+        ]);
+    }
+
     /**
      * Visualisation d'une annonce particulière
      * @param $id
