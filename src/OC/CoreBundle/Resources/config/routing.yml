@@ -1,3 +1,7 @@
 oc_core_homepage:
     path:     /
-    defaults: { _controller: OCCoreBundle:Default:index }
+    controller: OCCoreBundle:Core:index
+
+oc_core_contact:
+    path: /contact
+    controller: OCCoreBundle:Core:contact
