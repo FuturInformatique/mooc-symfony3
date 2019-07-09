@@ -161,12 +161,20 @@ class AdvertController extends AbstractController {
     public function deleteAction($id) {
 
         // Récupère l'annonce dont l'id vaut $id
-        // TODO
+        $advert = array(
+            'title'   => 'Recherche développpeur Symfony',
+            'id'      => $id,
+            'author'  => 'Alexandre',
+            'content' => 'Nous recherchons un développeur Symfony débutant sur Lyon. Blabla…',
+            'date'    => new Datetime()
+        );
 
         // Suppression de l'annonce
         // TODO
 
-        return $this->render('OCPlatformBundle:Advert:delete.html.twig');
+        return $this->render('OCPlatformBundle:Advert:delete.html.twig', [
+            'advert' => $advert
+        ]);
     }
 
 }
