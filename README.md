@@ -19,6 +19,15 @@ A la place, vous avez le fichier `parameters.yml.dist` que vous devez renommer (
 ## 3. Télécharger les vendors
 Avec Composer bien évidemment :  
 ```php composer.phar install```
+
+PS : Si vous avez une erreur du type :
+```
+[RuntimeException]                                                         
+  An error occurred when executing the "'cache:clear --no-warmup'" command:  
+                                                                             
+  Could not open input file: app/console
+```
+-> essayez de créer manuellement le dossier "var" à la racine du projet, et relancer la commande composer.
   
 ## 4. Lancer le serveur local
 Depuis la console, placez-vous dans le répertoire du projet, et tapez la commande :  
