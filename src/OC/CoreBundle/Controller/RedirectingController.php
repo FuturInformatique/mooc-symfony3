@@ -2,12 +2,12 @@
 /**
  * Source : https://symfony.com/doc/3.4/routing/redirect_trailing_slash.html
  */
-namespace AppBundle\Controller;
+namespace OC\CoreBundle\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 
-class RedirectingController extends Controller
+class RedirectingController extends AbstractController
 {
     public function removeTrailingSlashAction(Request $request)
     {
