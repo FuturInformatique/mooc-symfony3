@@ -98,15 +98,7 @@ class AdvertController extends AbstractController {
      * @param OCAntispam $antispam
      * @return RedirectResponse|Response
      */
-    public function addAction(Request $request, OCAntispam $antispam) {
-
-        //--- Test service
-        $text = "coucou";
-        if ($antispam->isSpam($text)) {
-            throw new \Exception('Votre message a été détecté comme spam ! (c\'est pas bien)');
-        }
-        //--- END
-
+    public function addAction(Request $request) {
         // Si la requête est en POST, le visiteur a soumis un formulaire
         if ($request->isMethod('POST')) {
             // Création / gestion du formulaire
